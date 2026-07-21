@@ -7,6 +7,7 @@ Postgres and as a JSON-encoded TEXT column on SQLite.
 import json
 from typing import AsyncGenerator
 
+from pgvector.sqlalchemy import Vector
 from sqlalchemy import types
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
@@ -26,6 +27,7 @@ class EmbeddingVector(types.TypeDecorator):
 
     impl = types.Text
     cache_ok = True
+    comparator_factory = Vector.Comparator
 
     def __init__(self, dim: int = 384):
         super().__init__()
@@ -33,8 +35,6 @@ class EmbeddingVector(types.TypeDecorator):
 
     def load_dialect_impl(self, dialect):
         if dialect.name == "postgresql":
-            from pgvector.sqlalchemy import Vector
-
             return dialect.type_descriptor(Vector(self.dim))
         return dialect.type_descriptor(types.Text())
 
