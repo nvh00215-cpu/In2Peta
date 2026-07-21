@@ -1,0 +1,190 @@
+{
+    "designSystemName": "Warm Minimal Food & Beverage App UI",
+    "meta": {
+      "platform": "iOS mobile app",
+      "appCategory": "Food & Beverage / E-commerce (coffee shop ordering app)",
+      "styleKeywords": ["warm", "cozy", "minimal", "modern", "rounded", "high-contrast dark/light mix", "premium editorial feel"],
+      "referenceNote": "Extracted structurally from a multi-screen mobile app case-study mockup. Content (brand name, copy, product names) intentionally excluded — use this as a reusable style/structure template, not a content template."
+    },
+  
+    "colorPalette": {
+      "primary": {
+        "terracotta": "#B8754A",
+        "terracottaDark": "#A6633A",
+        "usage": "Primary brand color. Used for backgrounds of cover/intro panels, primary CTA buttons, icon accents, active tab/segment highlights, promo tags."
+      },
+      "neutrals": {
+        "nearBlack": "#141414",
+        "charcoal": "#1E1E1E",
+        "white": "#FFFFFF",
+        "offWhite": "#F7F5F3",
+        "lightGray": "#EDEBE8",
+        "midGray": "#8A8A8A",
+        "borderGray": "#E2DFDC"
+      },
+      "accent": {
+        "promoRed": "#D9483C",
+        "usage": "Used sparingly for promo/sale badges and urgency tags only."
+      },
+      "textOnDark": "#FFFFFF",
+      "textOnLight": {
+        "heading": "#1A1A1A",
+        "body": "#6B6B6B",
+        "muted": "#9C9C9C"
+      },
+      "colorRules": [
+        "One dominant warm accent color (terracotta) carries brand identity across all screens.",
+        "Dark near-black backgrounds are used for immersive/hero product photography screens.",
+        "Light/white backgrounds are used for functional/transactional screens (browse, cart, checkout).",
+        "Avoid more than 2 accent colors total; red/orange reserved strictly for promotional badges."
+      ]
+    },
+  
+    "typography": {
+      "fontStyle": "Rounded geometric sans-serif (e.g. similar to 'SF Pro Rounded', 'Poppins', or 'Circular')",
+      "scale": {
+        "displayHeading": { "sizePx": 34, "weight": 700, "lineHeight": 1.15, "letterSpacing": "-0.5px" },
+        "sectionHeading": { "sizePx": 20, "weight": 600, "lineHeight": 1.2 },
+        "cardTitle": { "sizePx": 15, "weight": 600 },
+        "body": { "sizePx": 14, "weight": 400, "color": "midGray" },
+        "caption": { "sizePx": 12, "weight": 400, "color": "muted" },
+        "price": { "sizePx": 15, "weight": 700 },
+        "buttonLabel": { "sizePx": 15, "weight": 600, "letterSpacing": "0.2px" }
+      },
+      "hierarchyRules": [
+        "Headings are bold, tight line-height, left-aligned.",
+        "Supporting/description text is regular weight, lower contrast gray, short (1-2 lines max).",
+        "Prices and key numeric data are bold and same color as headings for emphasis."
+      ]
+    },
+  
+    "layoutAndStructure": {
+      "gridSystem": "Single-column mobile layout, 16-20px horizontal margins, consistent 12-16px vertical rhythm between stacked elements.",
+      "cornerRadius": {
+        "screenFrame": 40,
+        "cardLarge": 24,
+        "cardSmall": 16,
+        "button": 28,
+        "pill": 999,
+        "iconButton": 12
+      },
+      "elevation": "Soft, subtle drop shadows on white cards floating over light gray backgrounds; no shadows on dark hero screens.",
+      "spacingScale": [4, 8, 12, 16, 20, 24, 32],
+      "screenTypes": [
+        {
+          "type": "Cover / Intro Panel",
+          "structure": "Full-bleed brand-color background, logo badge + wordmark top-left, large bold headline, one-line subtitle, vertical list of 3 feature bullets each with a circular icon badge, small tool/platform icons at bottom."
+        },
+        {
+          "type": "Onboarding / Splash",
+          "structure": "Full-bleed dark hero photo background (steam/product close-up), status bar visible, bottom third contains: bold 3-line headline over a soft gradient/overlay, one-line supporting text, full-width rounded primary button, small pagination dots below."
+        },
+        {
+          "type": "Order / Delivery Type Screen",
+          "structure": "Light background, top nav bar with back icon + centered title, segmented control (2 pill tabs e.g. toggle A/B) directly below nav, list content below segmented control."
+        },
+        {
+          "type": "Checkout / Payment Screen",
+          "structure": "Light background, top summary/total row, payment method selector row (icon + label + chevron, right-aligned value), full-width primary rounded button pinned near bottom, small handle/indicator bar at very bottom for home gesture."
+        },
+        {
+          "type": "Home / Browse (Marketplace) Screen",
+          "structure": "Dark or light top status/header area with location label + dropdown chevron, search bar (rounded, icon-left) with adjacent circular filter icon button, promo banner card (rounded, colored background, badge tag + bold text + product image), horizontal scrollable category pill tabs (one active/filled state, rest outline/muted), grid of product cards (2 columns) each with image, rating badge, title, subtitle, price, and circular add(+) button, bottom tab bar with 4-5 icons and one filled/active state."
+        }
+      ]
+    },
+  
+    "componentLibrary": {
+      "buttons": {
+        "primary": {
+          "shape": "fully rounded (pill)",
+          "fill": "solid terracotta",
+          "textColor": "white",
+          "width": "full-width within margins",
+          "height": 52,
+          "states": ["default", "pressed (slightly darker)"]
+        },
+        "iconButton": {
+          "shape": "circle or rounded-square",
+          "fill": "white or terracotta depending on context",
+          "size": 40
+        }
+      },
+      "badges": {
+        "iconBadge": {
+          "shape": "circle",
+          "fill": "translucent white on brand-color background, or white on dark background",
+          "iconStyle": "thin-line, single-color, centered"
+        },
+        "promoTag": {
+          "shape": "small rounded rectangle",
+          "fill": "promoRed",
+          "textColor": "white",
+          "usage": "top-left corner overlay on promo banners"
+        },
+        "ratingBadge": {
+          "shape": "small pill",
+          "content": "star icon + numeric rating",
+          "position": "top-left corner overlay on product image"
+        }
+      },
+      "cards": {
+        "productCard": {
+          "structure": "image (rounded top corners, ~1:1 ratio) > title (bold) > subtitle (muted, small) > price (bold, left) + circular add button (right)",
+          "background": "white",
+          "cornerRadius": 20,
+          "shadow": "soft, low-opacity"
+        },
+        "promoBanner": {
+          "structure": "rounded card, colored/photo background, promo tag top-left, bold short headline overlaid, product image bleeding off right edge",
+          "cornerRadius": 20
+        }
+      },
+      "navigation": {
+        "topBar": {
+          "structure": "back chevron (left) + centered title (bold) OR location label + dropdown (left) + notification/filter icon (right)",
+          "background": "transparent or matches screen background"
+        },
+        "bottomTabBar": {
+          "structure": "4-5 icon-only tabs, evenly spaced, one active tab shown as filled circular highlight in brand color, rest muted gray outline icons",
+          "background": "white",
+          "cornerRadius": "top corners rounded if floating, else full-width flat"
+        },
+        "segmentedControl": {
+          "structure": "two or more pill-shaped tabs inside a rounded outer container, active tab filled with brand color + white text, inactive tabs transparent with muted text"
+        },
+        "categoryPills": {
+          "structure": "horizontally scrollable row of pill buttons, active = filled brand color + white text, inactive = outline or light-gray fill + dark text"
+        }
+      },
+      "inputs": {
+        "searchBar": {
+          "shape": "fully rounded (pill)",
+          "fill": "light gray / white",
+          "iconLeft": "search/magnifier icon, muted color",
+          "placeholderStyle": "muted gray text"
+        }
+      }
+    },
+  
+    "imageryStyle": {
+      "photography": "High-contrast, moody, close-up product photography (steam, texture, rich warm tones) used only on hero/intro screens.",
+      "productThumbnails": "Bright, clean, top-down or 3/4 angle shots on neutral/white backgrounds for catalog/grid screens.",
+      "iconography": "Thin-line, single-weight, minimal icons; consistently sized within circular badge containers."
+    },
+  
+    "motionAndInteractionNotes": {
+      "activeStates": "Filled/solid = active or selected; outline/muted = inactive. Consistent across pills, tabs, and nav.",
+      "emphasisPattern": "Only one primary action per screen is styled as a solid full-width button; secondary actions are icon-only or text links."
+    },
+  
+    "designPrinciplesForReplication": [
+      "Pick exactly one warm accent color and one neutral dark color; do not introduce additional hues except a single reserved promo/alert color.",
+      "Alternate dark immersive screens (marketing/onboarding) with light functional screens (browse/checkout) to create rhythm.",
+      "Keep corner radii large and consistent across buttons, cards, and screen frames to reinforce a soft, friendly brand feel.",
+      "Use circular icon containers everywhere an icon appears standalone (badges, nav icons, add buttons) rather than square icons.",
+      "Typography stays restrained: one font family, bold for headings/prices, regular+muted-gray for secondary text.",
+      "Every list/grid follows image > title > muted subtitle > price+action pattern for scannability.",
+      "Bottom navigation and top navigation are minimal, icon-first, with exactly one clear active-state indicator."
+    ]
+  }

@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * In2Peta — semantic tokens for shadcn primitives, mapped onto the
+ * design-system.json palette. Light theme only: the design system fixes
+ * which screens are dark (immersive) vs light (functional); there is no
+ * user-facing dark mode toggle.
+ */
+@layer base {
+  :root {
+    --background: #f7f5f3; /* offWhite */
+    --foreground: #1a1a1a; /* textOnLight.heading */
+    --card: #ffffff;
+    --card-foreground: #1a1a1a;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a1a;
+    --primary: #b8754a; /* terracotta */
+    --primary-foreground: #ffffff;
+    --secondary: #edebe8; /* lightGray */
+    --secondary-foreground: #1a1a1a;
+    --muted: #edebe8;
+    --muted-foreground: #8a8a8a; /* midGray */
+    --accent: #edebe8;
+    --accent-foreground: #1a1a1a;
+    --destructive: #d9483c; /* promoRed */
+    --destructive-foreground: #ffffff;
+    --border: #e2dfdc; /* borderGray */
+    --input: #e2dfdc;
+    --ring: #b8754a;
+    --radius: 16px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-off-white font-sans text-body text-heading antialiased;
+  }
+  /* Poppins-friendly heading defaults per typography.hierarchyRules */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-left font-semibold text-heading;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}

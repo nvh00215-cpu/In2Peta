@@ -1,0 +1,46 @@
+# Render blueprint for the In2Peta backend.
+# The frontend deploys to Vercel; the database is Neon Postgres (pgvector).
+services:
+  - type: web
+    name: in2peta-api
+    runtime: python
+    rootDir: backend
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL # Neon: postgresql+asyncpg://USER:PASS@HOST/neondb?ssl=require
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FRONTEND_URL # your Vercel URL, e.g. https://in2peta.vercel.app
+        sync: false
+      - key: BACKEND_URL # this service's URL, e.g. https://in2peta-api.onrender.com
+        sync: false
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: MOCK_LLM
+        value: "false"
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.1-flash-lite
+      - key: EMBEDDING_MODEL
+        value: gemini-embedding-001
+      - key: MOCK_EMBEDDINGS
+        value: "false"
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+    disk:
+      name: in2peta-uploads
+      mountPath: /var/data
+      sizeGB: 1
