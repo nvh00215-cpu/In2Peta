@@ -28,9 +28,6 @@ class EmbeddingVector(types.TypeDecorator):
     impl = types.Text
     cache_ok = True
 
-    class comparator_factory(Vector.Comparator, types.TypeDecorator.Comparator):
-        pass
-
     def __init__(self, dim: int = 384):
         super().__init__()
         self.dim = dim
