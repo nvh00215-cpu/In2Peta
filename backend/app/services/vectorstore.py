@@ -29,7 +29,7 @@ async def top_k_chunks(
     if settings.is_postgres:
         from pgvector.sqlalchemy import Vector  # noqa: F401  (registers the type)
 
-        distance = Chunk.embedding.cosine_distance(query_embedding)
+        distance = Chunk.embedding.cast(Vector(settings.embedding_dim)).cosine_distance(query_embedding)
         stmt = (
             select(Chunk, distance.label("distance"))
             .where(Chunk.document_id.in_(document_ids), Chunk.embedding.is_not(None))
